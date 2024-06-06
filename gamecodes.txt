@@ -1,0 +1,104 @@
+<header>
+        <button class="btn-again">Again</button>
+        <p class="between">(Between 1 and 20)</p>
+      </header>
+      <div class="content">
+        <h1 class="heading">Guess My number !</h1>
+        <div class="number">?</div>
+      </div>
+      <div class="game">
+        <div class="part-1">
+          <input type="number" class="guess" />
+          <button class="btn-check">Check</button>
+        </div>
+        <div class="part-2">
+          <h2 class="sub-heading">Start guessing...</h2>
+          <p class="label-score">🥇score :<span class="score"> 5</span></p>
+          <p class="label-highscore">
+            💯High-Score :<san class="highscore">0</san>
+          </p>
+        </div>
+      </div>
+
+
+
+       const secretNumber = Math.trunc(Math.random() * 20) + 1;
+  // document.querySelector(".number").textContent = secretNumber;
+  let score = 5;
+  document.querySelector(".btn-check").addEventListener("click", () => {
+    const guess = Number(document.querySelector(".guess").value);
+    if (!guess) {
+      document.querySelector(".sub-heading").textContent = "❌ No number";
+    } else if (guess === secretNumber) {
+      document.querySelector(".sub-heading").textContent = "🎉 Correct number";
+      score++;
+      document.querySelector(".score").textContent = score;
+    } else if (guess > secretNumber) {
+      if (score > 1) {
+        document.querySelector(".sub-heading").textContent =
+          "Your input is higher than the lucky number📈";
+        score--;
+        document.querySelector(".score").textContent = score;
+      } else {
+        document.querySelector(".sub-heading").textContent =
+          "You lost sorry 🤯";
+        document.querySelector(".score").textContent = 0;
+      }
+    } else if (guess < secretNumber) {
+      if (score > 1) {
+        document.querySelector(".sub-heading").textContent =
+          "Your input is lower than the lucky number📉";
+        score--;
+        document.querySelector(".score").textContent = score;
+      } else {
+        document.querySelector(".sub-heading").textContent =
+          "You lost sorry 🤯";
+        document.querySelector(".score").textContent = 0;
+      }
+    }
+  });
+
+   // else if (guess > secretNumber) {
+    //   if (score > 1) {
+    //     document.querySelector(".sub-heading").textContent =
+    //       "Your input is higher than the lucky number📈";
+    //     score--;
+    //     document.querySelector(".score").textContent = score;
+    //   } else {
+    //     document.querySelector(".sub-heading").textContent =
+    //       "You lost sorry 🤯";
+    //     document.querySelector(".score").textContent = 0;
+    //   }
+    // } else if (guess < secretNumber) {
+    //   if (score > 1) {
+    //     document.querySelector(".sub-heading").textContent =
+    //       "Your input is lower than the lucky number📉";
+    //     score--;
+    //     document.querySelector(".score").textContent = score;
+    //   } else {
+    //     document.querySelector(".sub-heading").textContent =
+    //       "You lost sorry 🤯";
+    //     document.querySelector(".score").textContent = 0;
+    //   }
+    // }
+
+    // if (guess > secretNumber) {
+    //   if (score > 1) {
+    //     document.querySelector(".sub-heading").textContent = "Start guessing";
+    //     document.querySelector(".score").textContent = score;
+    //   } else {
+    //     document.querySelector(".sub-heading").textContent = "start guessing";
+    //     document.querySelector(".score").textContent = 5;
+    //     score--;
+    //   }
+    // }
+    // if (guess < secretNumber) {
+    //   if (score > 1) {
+    //     document.querySelector(".sub-heading").textContent = "Start guessing";
+    //     document.querySelector(".score").textContent = score;
+    //   } else {
+    //     document.querySelector(".sub-heading").textContent = "start guessing";
+    //     document.querySelector(".score").textContent = 5;
+    //     score--;
+    //   }
+    // }
